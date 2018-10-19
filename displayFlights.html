@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+  <title>Matrix View</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type = "text/css" href="style-displayFlight-page.css">
+
+</head>
+
+<body>
+  <ul class="nav nav-tabs">
+    <li><a href="searchFlights.html">List View</a></li>
+    <li class="active"><a href="#">Matrix View</a></li>
+  </ul>
+<div class="container">
+  <p><span class="badge badge-success">2</span> of 3 flights shown-one way</p>
+
+  <div class="tab-content">
+    <div id="Matrix" class="tab-pane fade in active">
+      <table id="Matrix1" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Price</th>
+            <th>Airline</th>
+            <th>Take-off</th>
+            <th>Landing</th>
+            <th>Stops (Duration)</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+  <script>
+    var flights = [{price: 1000, airLine:"Singapore", takeOff:"BKK 06:00", landing:"CDG 18:00", stops: 7},
+                   {price: 20411, airLine:"Emirates", takeOff:"BKK 01:35", landing:"LND 14:05", stops: 7},
+                   {price: 15368, airLine:"Thai Airways", takeOff:"BKK 01:15", landing:"MLB 13:05", stops: 7}];
+
+        var myList = document.getElementById("Matrix1");
+
+        for (var i = 0; i < flights.length; i++) {
+          var tb = document.createElement("tbody");
+          var tr = document.createElement("tr");
+
+          var price = document.createElement("td");
+          var price1 = document.createTextNode(flights[i].price);
+          price.appendChild(price1);
+          tr.appendChild(price);
+
+          var airLine = document.createElement("td");
+          var airLine1 = document.createTextNode(flights[i].airLine);
+          airLine.appendChild(airLine1);
+          tr.appendChild(airLine);
+
+          var takeOff = document.createElement("td");
+          var takeOff1 = document.createTextNode(flights[i].takeOff);
+          takeOff.appendChild(takeOff1);
+          tr.appendChild(takeOff);
+
+          var landing = document.createElement("td");
+          var landing1 = document.createTextNode(flights[i].landing);
+          landing.appendChild(landing1);
+          tr.appendChild(landing);
+
+          var stops = document.createElement("td");
+          var stops1 = document.createTextNode(flights[i].stops);
+          stops.appendChild(stops1);
+          tr.appendChild(stops);
+
+          tb.appendChild(tr);
+          myList.appendChild(tb);
+
+          price.style.fontSize = "24px";
+          price.style.color = "blue";
+          price.style.fontWeight = "bold";
+        }
+    
+  </script>
+  <center>                  
+    <ul class="pagination">
+      <li><a href="searchFlights.html"><</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="availableFlight.html">></a></li>
+    </ul>
+  </center>   
+</div>
+
+
+</body>
+</html>
